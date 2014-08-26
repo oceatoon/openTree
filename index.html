@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+		<meta http-equiv="content-langage" content="en">
+		<title>Open Tree :: Orgnanic and Flexible, Jquery Pluggin, Reads and Edits any Json Source</title>
+		<meta name="description" content="JSON Editor online tool.  Reads and Edits any JSON DATA, javascript JQuery plugin.">
+		<meta name="keywords" content="json editor online tool read edit export validate mind objects array mapping map javascript">
+		<meta name="identifier-url" content="http://oceatoon.org">
+		<meta name="author" content="Tibor Katelbach OCEATOON">
+		<meta name="reply-to" content="opentree@oceatoon.org">
+		<meta name="copyright" content=" 2012">
+		<meta name="robots" content="index,follow">
+		        
+        <!-- Our CSS stylesheet file -->
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link type="text/css" href="css/ui-darkness/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+
+    </head>
+    
+    <body>
+
+        <header>
+            <h1>Open Tree</h1>
+			Open Tree Transforms a text indented by tabs into a structured tree<br/>
+			and gives it multiple representations by rendering all sorts of existing structures and templates><br/>
+        </header>
+        
+        <section id="filter" class="dark">
+			<a href="javascript:alert('Somethings coming soon !')" class='btnfolder'>FOR EYES</a> 
+			<a href="javascript:alert('Somethings cooking, smells good !')" class='btnreset'>SMELL</a> 
+			<a href="javascript:alert('Hummm humm, dont you understand english ? ')" class='btnreload'>TOUCH</a> 
+			<a href="javascript:alert('Are you death !!')" class='btnexport'>EARS</a>
+			<a href="javascript:alert('Dont go too far Maurice, youre goona find what youre looking for !!')" class='btnexport'>TASTE</a>
+        </section>
+        <section id="containerTools">
+            
+        </section>
+        <section id="container">
+			<ul>
+				<li><a href="simpleText.html">view as simple Text</a> <br/>uses <a href="https://github.com/mgmeyers/LineReader" target="_blank">LineReader Library</a></li>
+				<li><a href="simpleText.html?tpl=text">view as simple Text</a></li>
+				<li><a href="jqtree.html">view as JQTree</a> <br/>uses <a href="https://github.com/mbraak/jqTree" target="_blank">JQTree Library</a></li>
+				<li>coming soon </li>
+				<li>MindMup</li>
+				<li>Todo List</li>
+				<li>D3js Graphs</li>
+			</ul>
+        </section>
+        
+        
+		
+		<section id="filterInfo" class="dark">
+		        <input type="radio" id="testsBtn" name="radio" /><label for="testsBtn">TODO</label>
+		        <input type="radio" id="featuresBtn" name="radio" /><label for="featuresBtn">FEATURES</label>
+		        <input type="radio" id="philosophyBtn" name="radio" /><label for="philosophyBtn">PHILOSOPHY</label>
+		        <input type="radio" id="wishlistBtn" name="radio" /><label for="wishlistBtn">WISHLIST</label>
+		        <input type="radio" id="thxBtn" name="radio" /><label for="thxBtn">THANKS + CONTACT</label>
+		</section>
+		
+		<section id="tests" class="info hidden">
+            <h2>Tests</h2>
+            <ul>
+                <li></li>
+            </ul>
+        </section> 
+		
+        <section id="features" class="info hidden">
+			<h2>Features</h2>
+			<ul>
+			    <li>Load/Read a text file</li>
+			    <li>Parse and Build a json structured by hierarchy </li>
+			</ul>
+		</section>  
+		
+		<section id="philosophy" class="info hidden">
+            <h2>Philosophy</h2>	
+			<ul>
+			    <li>We emphasis on "connections instead of stuff. It's a linking Science".(The Permaculture Philosophy)</li>
+			    <li>You have DATA, grow a TREE, it's easy ! You can also OPEN it, if it's your PHILOSOPHY!</li> 
+			    <li>We're building a JUNGLE FOREST, be a bird or a monkey ! simply be part of it!</li>
+			</ul>
+		</section>  
+		
+		<section id="wishlist" class="info hidden">
+            <h2>Wishlist</h2>
+            <ul>
+                <li>How to Manage large size datasets</li>
+                <li>Json quality validator <a href="http://jsonlint.com/" target="_blank">jsonLint</a>, or <a href="http://jsonformatter.curiousconcept.com/" target="_blank">json Formatter</a></li>
+                <li>Concatenate Trees together</li>
+                <li>CSS size reducer</li>
+                <li>Keep content open (beware of treeMap and HtmlId doubles)</li>
+                <li>Add a visual link when all data is open, to visualize parenthood</li>
+                <li>Save to DB , into a session</li>
+                <li>Plug third party to the saving process : save post to a WP, etc </li>
+                <li>Export a Branch only</li>
+                <li>Export in various formats : freeplane, XML, ...</li>
+                <li><a class="btn" href="mailto:opentree@oceatoon.org">Make a Request</a></li>
+            </ul>
+        </section>  
+		
+		<section id="thx" class="info hidden">
+            <h2>Thanks</h2>
+            <ul>
+                <li>To the general Open Source Movement. Base of which nothing on the internet would really have a reason to exist.</li>
+                <li>JQuery community</li>
+                <li><a href="https://github.com/douglascrockford/JSON-js" target="_blank">Douglas CrockFord</a>, Javascript and Json Guru</li>
+                <li><a href="http://oceatoon.org" target="_blank">Tibor Katelbach</a>, created Open Tree</li>
+            </ul>
+        </section> 
+        
+		<br/><br/><br/><br/>
+        <footer>
+	        <h3>CONTRIBUTE TO THE COMMUNITY, OR PICK AN APPLE &amp; PAY FOR YOUR PRIVACY</h3>
+            Map your Json onto HTML objects : VIEW by rendering an HTML visualisation of your JSON, and PLAY with your Json data Tree 
+            <br/>Developpement philosophy : <a href="http://fr.wikipedia.org/wiki/Open_source" target="_blank">Open Source</a> and <a href="http://fr.wikipedia.org/wiki/Permaculture" target="_blank">Permaculture</a> applied to development
+        </footer>
+		
+        <div id="dialogContainer"  style="display:none">&nbsp;</div>
+        <div id="dialogContainer2"  style="display:none">&nbsp;</div>
+
+    </body>
+    <script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui-1.8.23.custom.min.js" type="text/javascript" ></script>
+		<script>
+		$(document).ready(function()
+		{
+			styleButtons();
+			$("a.btnfolder ").button({ icons: {secondary:'ui-icon-folder-open'} }  );
+			$("a.btnreset ").button({ icons: {secondary:'ui-icon-refresh'} }  );
+			$("a.btnreload ").button({ icons: {secondary:'ui-icon-arrowrefresh-1-s'} }  );
+			$("a.btnexport ").button({ icons: {secondary:'ui-icon-disk'} }  );
+			$("#filterInfo").buttonset();
+			$('#testsBtn').click( function(event){event.preventDefault();$('.info').slideUp();$('#tests').slideToggle();});
+			$('#featuresBtn').click( function(event){event.preventDefault();$('.info').slideUp();$('#features').slideToggle();});
+			$('#philosophyBtn').click( function(event){event.preventDefault();$('.info').slideUp();$('#philosophy').slideToggle();});
+			$('#wishlistBtn').click( function(event){event.preventDefault();$('.info').slideUp();$('#wishlist').slideToggle();});
+			$('#thxBtn').click( function(event){event.preventDefault();$('.info').slideUp();$('#thx').slideToggle();});
+			
+		});
+		function styleButtons(){
+			$("a.btn ").button();
+			$("a.btntrash ").button({ icons: {secondary:'ui-icon-trash'} }  );
+			$("a.btnpencil ").button({ icons: {secondary:'ui-icon-pencil'} }  );
+			$("a.btnplus ").button({ icons: {secondary:'ui-icon-plusthick'} }  );	
+		}
+	</script>
+</html>
+

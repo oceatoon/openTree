@@ -1,10 +1,4 @@
-openTree
-========
-
-tab indentation, simple text based, tree generator multiple Templates
-
 milestones 
-========
 	V0.1
 		x-load file : azotlive.txt
 		x-using Line Reader
@@ -14,16 +8,31 @@ milestones
 				todo list: file:///X:/X_Dev/humanpixel/modules/todo/index.html
 					needs a markdown strategy
 				graph : https://github.com/mindmup/mapjs
+				jsonEditor : https://github.com/oceatoon/jsonEditor
 	V0.2
+		integrate jsonEditor HomePage design
+		make a proper project structure not based on LineReader
+		validator
+			like 
+				Json quality validator <a href="http://jsonlint.com/" target="_blank">jsonLint</a>
+				<a href="http://jsonformatter.curiousconcept.com/" target="_blank">json Formatter</a>
+			before processing
+			replace all "&lg;", line breaks by ""
+	V0.22
+		charger plusieur txt, chaque load serait un block
+			permettra de decouper les gd txt en section
+	V0.25
 		modify writes to file 
 			data:text/html, <html contenteditable>
 			http://codemirror.net/
 			http://html5demos.com/contenteditable
 			http://codepen.io/nakome/pen/Lejkd
 		simple add remove
-	V0.25
-		priority
 	v0.3
+		mardown language 
+		jqTree : manage dragNDrop
+		priority
+	v0.35
 		make mongoDB based
 	v0.4
 		manage users
@@ -34,11 +43,7 @@ milestones
 		scan content for keywords
 			http://www.alchemyapi.com/api/keyword/textc.html
 		bubble points
-	v0.7 
-		charger plusieur txt, chaque load serait un block
-
 features
-========
 	priority / reorder
 	user: (according to user type validation is required)
 		project manager	
@@ -48,12 +53,3 @@ features
 		todo
 		quality assure
 		done
-
-Thanks
-==========
-* To the general Open Source Movement. Base of which nothing on the internet would exist.
-* JQuery community
-* Matthew Meyers <hello@matthewmeye.rs> for https://github.com/mgmeyers/LineReader
-* https://github.com/mbraak/jqTree
-
-

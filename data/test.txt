@@ -1,0 +1,101 @@
+search 
+	AlterEgo ocean indien
+http://open.coop/category/audio/
+https://www.youtube.com/watch?v=Ixgp8_B9g5A
+https://www.youtube.com/watch?v=VdodiCFzQq8
+http://www.ted.com/talks/tim_berners_lee_a_magna_carta_for_the_web
+
+http://catalyst-fp7.eu/open-call-collaboration/
+http://catalyst-fp7.eu/public-resources-2/demos-tutorials/
+http://catalyst-fp7.eu/public-resources-2/reports-deliverables/
+
+AzotLive
+	ajouter champs bouton radio impression/ retirer sur place (obligatoire)
+	ajouter champs je reconnais avoir pris connaissance des conditions générales de vente (obligatoire pour valider pas en base)
+	Mise en place des sauvegardes toutes les heures 
+	Intégration PP CB
+		attente d'activation de compte
+
+Genevieve Bonnet 
+	940712
+	https://mail.google.com/mail/u/0/#inbox/1479bbcee1f9612e
+
+AzotLive 
+	listing Billeterie 
+		API Event 
+			edit event, person open popin Form 
+			make getBy.php a widget , parameter driven 
+			in getByNode
+		add Event
+			input tags
+				multi selection
+				propertyObject  range : TypeMusicaux
+				lieux
+			event administrator
+			dropdown ville reunion
+				remplie ville + coop onchange not working ???
+			superEvent ???
+			eventType ???
+		admin Notifications / Contact
+	interface 
+		page mon compte 
+		form modifier compte
+		view event 
+		form create event 
+		event list + filters
+		back end admin azotlive
+		back end producteur
+		contact Form
+	Error Page
+		How to manage module errors
+	Process Checkout 
+		Paypal or MangoPay ??
+	Future Ideas 
+		Crowdsource EVent Photos
+			send your photo
+		Revoir l'evennement 
+			mettre a dispo tout les medias sorti a propos de l'event
+		S'ouvrir  la metropole 
+			c'est pour quand ?
+		connecter une communauté d'artiste 
+
+Fablab 
+	creer un mouvement de developper ouvert a la Reunion 
+	come and code 
+	Programmers get together
+		paradygms 
+			get together , code together, build together in parallel
+			meet people
+			digital nomads organised tribe, for a common quest 
+
+
+PH online 
+	section Partner 
+	Team 
+	Documenter l'API, Communecter
+		describe project 
+			type of DB 
+			stack
+		have an open github
+		have an api 
+		anyone can install on their server 
+		play with the api 
+		- optional : your platform interoperates with all running instances
+	Best Practise dev 
+		we use 
+			 on Ubuntu : git command line
+			 on Windows and mac : SourceTree
+		our git workflow
+			https://www.atlassian.com/git/workflows
+
+jerome devis 
+	devis pour 140 000 e oceatoon dev du PH
+	demandons a Steph+Loic+Jeremy
+		10K Steph 
+		6K Loic
+		6K Jeremy 
+
+txt parse tabs to tree
+	http://stackoverflow.com/questions/6075974/python-file-parsing-build-tree-from-text-file
+	file:///X:/X_Dev/humanpixel/modules/todo/index.html
+	todo url : 

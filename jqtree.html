@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Line Reader Test</title>
+  <link rel="stylesheet" type="text/css" href="css/jqtree.css">
+</head>
+<body>
+  <input type="file" id="file">
+  <button id="read">Read</button>
+
+  <pre id="output"></pre>
+  <div id="outputGraph"></div>
+
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/tree.jquery.js" type="text/javascript"></script>
+  <script src="js/LineReader.js"></script>
+
+  <script>
+    var lineArray = [];
+    var data = null;
+    $(function () {
+      var view = (getParameterByName("tpl")) ? getParameterByName("tpl") : "text";
+      var lr = new LineReader({
+        chunkSize: 1
+      });
+
+      $('#read').click(function () 
+      {
+        var file = $('#file').get(0).files[0];
+        
+        console.dir(file);
+        var totalCount = 1;
+        var $output = $('#output');
+
+        lr.on('line', function (line, next) 
+        {
+          
+            /*var data = [
+              {
+                  label: 'node1',
+                  children: [
+                      { label: 'child1' },
+                      { label: 'child2' }
+                  ]
+              },
+              {
+                  label: 'node2',
+                  children: [
+                      { label: 'child3' }
+                  ]
+              }
+          ];*/
+          if(replaceAll("\t", "", line) != "")
+          {
+            line = replaceAll("\t", ">", line);
+            line = replaceAll("\r", "", line);
+            lineArray.push( { 
+                indentCount : line.split(">").length - 1 ,
+                label : replaceAll(">", "", line),
+                lineNumber :totalCount                
+              } );      
+          }
+          
+          totalCount++;
+
+          /**
+           * Simulate some sort of asynchronous operation
+           */
+          //setTimeout(function () {
+            next();
+          //}, 30);
+        });
+
+        lr.on('error', function (err) {
+          console.log(err);
+        });
+
+        lr.on('end', function () {
+
+          //final render 
+          data = new dataTreeEntry("testing");
+          list2JQTreeData();
+          $('#outputGraph').tree({
+                data : data.children ,
+                autoOpen : false,
+                //dragAndDrop : true
+            });
+
+          console.log('Read complete!');
+        });
+
+        lr.read(file);
+      });
+
+    });
+    function dataTreeEntry(lbl){
+      if(lbl.indexOf("hhtp://")>=0)
+        lbl = "<a href='"+lbl+"'>"+lbl+"</a>";
+      this.label = lbl;
+    }
+    dataTreeEntry.prototype.addChildByPosition = function(pos,parentPosPath,child)
+    {
+      parent = this;
+      if( parentPosPath )
+      {
+        for( ix = 0; ix < parentPosPath.length; ix++) 
+        {
+          parent = parent.children[parentPosPath[ix]];
+        }
+      } 
+     
+      if(parent.children == undefined)
+        parent.children = [];
+
+      parent.children[pos] = child;
+    }
+    function list2JQTreeData()
+    {
+      //console.dir(lineArray);
+      var added = 0
+      var indentCursor = 0;
+      var indentCursorMax = 0;
+      parentPosPath = "";
+      parentPos = 0;
+      undrawnChildren = true;
+      list = lineArray;
+      while(undrawnChildren)
+      {
+        //console.info("run through ","indentCursor",indentCursor,"current list Length",list.length);
+        undrawnChildren = 0;
+        pos = 0;
+        undrawnArr = [];
+        prevParentPosPath = null;
+        for( i = 0; i < list.length; i++) 
+        {
+            if(list[i].indentCount == indentCursor)
+            {
+              path = (list[i].parentPosPath) ? list[i].parentPosPath : null;
+
+              if(pos > 0 && path && prevParentPosPath && !path.equals(prevParentPosPath) )
+              {
+                  pos = 0;
+              }
+              prevParentPosPath = path;
+              console.log(i,pos,"draw -----","indentCount",list[i].indentCount,"label",list[i].label,"path",path);
+              data.addChildByPosition(pos,path,new dataTreeEntry(list[i].label));
+              parentPos = pos;
+              
+              pos++;
+              //list.splice(i,0);
+            } 
+            else if(list[i].indentCount > indentCursor)
+            {
+              if(list[i].parentPosPath == undefined)
+                list[i].parentPosPath = [];
+              list[i].parentPosPath.push(parentPos);
+              //console.log(i,"nodraw ---------------","indentCount",list[i].indentCount,"label",list[i].label,"path",list[i].parentPosPath);
+              undrawnArr.push(list[i]);
+              undrawnChildren++;
+              if(list[i].indentCount > indentCursorMax)
+                indentCursorMax = list[i].indentCount;
+            }
+        }
+        //console.warn("run out ","undrawnChildren",undrawnChildren,"maxDepth",indentCursorMax);
+        //console.dir(data);
+        indentCursor++;
+        list = undrawnArr;
+        if(undrawnChildren == 0)
+          undrawnChildren = false;
+      }
+    }
+    function replaceAll(find, replace, str) 
+    {
+      return str.replace(new RegExp(find, 'g'), replace);
+    }
+    function getParameterByName(name) 
+    {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    Array.prototype.equals = function (array) {
+      // if the other array is a falsy value, return
+      if (!array)
+          return false;
+
+      // compare lengths - can save a lot of time 
+      if (this.length != array.length)
+          return false;
+
+      for (var i = 0, l=this.length; i < l; i++) {
+          // Check if we have nested arrays
+          if (this[i] instanceof Array && array[i] instanceof Array) {
+              // recurse into the nested arrays
+              if (!this[i].equals(array[i]))
+                  return false;       
+          }           
+          else if (this[i] != array[i]) { 
+              // Warning - two different object instances will never be equal: {x:20} != {x:20}
+              return false;   
+          }           
+      }       
+      return true;
+  }   
+  </script>
+</body>
+</html>
