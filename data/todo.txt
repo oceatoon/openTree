@@ -1,55 +1,60 @@
-milestones 
-	V0.1
-		x-load file : azotlive.txt
-		x-using Line Reader
-		x-manage indentation
-			turn into template 
-				x-JQTree
-				todo list: file:///X:/X_Dev/humanpixel/modules/todo/index.html
-					needs a markdown strategy
-				graph : https://github.com/mindmup/mapjs
-				jsonEditor : https://github.com/oceatoon/jsonEditor
-	V0.2
-		integrate jsonEditor HomePage design
-		make a proper project structure not based on LineReader
-		validator
-			like 
-				Json quality validator <a href="http://jsonlint.com/" target="_blank">jsonLint</a>
-				<a href="http://jsonformatter.curiousconcept.com/" target="_blank">json Formatter</a>
-			before processing
-			replace all "&lg;", line breaks by ""
-	V0.22
-		charger plusieur txt, chaque load serait un block
-			permettra de decouper les gd txt en section
-	V0.25
-		modify writes to file 
-			data:text/html, <html contenteditable>
-			http://codemirror.net/
-			http://html5demos.com/contenteditable
-			http://codepen.io/nakome/pen/Lejkd
-		simple add remove
-	v0.3
-		mardown language 
-		jqTree : manage dragNDrop
-		priority
-	v0.35
-		make mongoDB based
-	v0.4
-		manage users
-	v0.5
-		make status changing
-		work history
-	v0.6
-		scan content for keywords
-			http://www.alchemyapi.com/api/keyword/textc.html
-		bubble points
-features
-	priority / reorder
-	user: (according to user type validation is required)
-		project manager	
-		dev
-		designer
-	status
-		todo
-		quality assure
-		done
+MILESTONES
+V0.1
+	x-load file : azotlive.txt
+	x-using Line Reader
+	x-manage indentation
+		turn into template 
+			x-JQTree
+V0.2
+	refresh Button
+	save lately saved txt in localStorage and allow to load onclick
+	integrate jsonEditor HomePage design
+V0.22
+	validator
+		like 
+			Json quality validator http://jsonlint.com/
+			json Formatter http://jsonformatter.curiousconcept.com/
+		before processing
+		replace all "&lg;", line breaks by ""
+V0.25
+	modify writes to file 
+		data:text/html, <html contenteditable>
+		http://codemirror.net/
+		http://html5demos.com/contenteditable
+		http://codepen.io/nakome/pen/Lejkd
+	simple add remove
+v0.3
+	mardown language 
+	jqTree : manage dragNDrop
+	priority
+v0.35
+	make localStorage based
+	make mongoDB based
+v0.4
+	manage users
+v0.5
+	make status changing
+	work history
+v0.6
+	scan content for keywords
+		http://www.alchemyapi.com/api/keyword/textc.html
+	bubble points
+
+WISHLIST
+priority / reorder
+user: (according to user type validation is required)
+	project manager	
+	dev
+	designer
+status
+	todo
+	quality assure
+	done
+templates
+	todo list: file:///X:/X_Dev/humanpixel/modules/todo/index.html
+		needs a markdown strategy
+	graphs
+		https://github.com/mindmup/mapjs
+		http://sigmajs.org/
+		http://cpettitt.github.io/project/dagre-d3/latest/demo/interactive-demo.html
+	jsonEditor : https://github.com/oceatoon/jsonEditor

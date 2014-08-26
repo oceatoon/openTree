@@ -2,55 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Line Reader Test</title>
+  <title>OpenTree in a JQTree</title>
   <link rel="stylesheet" type="text/css" href="css/jqtree.css">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
 </head>
 <body>
   <input type="file" id="file">
   <button id="read">Read</button>
-
-  <pre id="output"></pre>
-  <div id="outputGraph"></div>
-
+  <div id="container"></div>
   <script src="js/jquery.min.js" type="text/javascript"></script>
   <script src="js/tree.jquery.js" type="text/javascript"></script>
   <script src="js/LineReader.js"></script>
-
+  <style>
+    .block{width:45%;float:left;border: 1px solid #666;padding: 10px;margin: 10px;}
+  </style>
   <script>
     var lineArray = [];
     var data = null;
-    $(function () {
+    var loadedBlocks = [];
+    blockCount = 0;
+    $(function () 
+    {
       var view = (getParameterByName("tpl")) ? getParameterByName("tpl") : "text";
-      var lr = new LineReader({
-        chunkSize: 1
-      });
-
+      
       $('#read').click(function () 
       {
         var file = $('#file').get(0).files[0];
         
         console.dir(file);
-        var totalCount = 1;
-        var $output = $('#output');
-
-        lr.on('line', function (line, next) 
+        if(file)
         {
-          
-            /*var data = [
-              {
-                  label: 'node1',
-                  children: [
-                      { label: 'child1' },
-                      { label: 'child2' }
-                  ]
-              },
-              {
-                  label: 'node2',
-                  children: [
-                      { label: 'child3' }
-                  ]
-              }
-          ];*/
+          exists = $.inArray( file.name, loadedBlocks );
+          if(exists >= 0)
+            alert("this file allready exists")
+          else
+            readFile("outputGraph"+blockCount, file);
+        } else
+          alert("choiose a file");
+      });
+    });
+    function readFile(id,file)
+    {
+      loadedBlocks.push(file.name);
+      $("#container").append('<div id="'+id+'"'+blockCount+' class="block"><img src="images/loader.gif"/></div>');
+      blockCount++;
+      lineArray = [];
+      data = null;
+      var totalCount = 1;
+      var lr = new LineReader({
+        chunkSize: 1
+      });
+      lr.on('line', function (line, next) 
+        {
           if(replaceAll("\t", "", line) != "")
           {
             line = replaceAll("\t", ">", line);
@@ -72,31 +75,28 @@
           //}, 30);
         });
 
-        lr.on('error', function (err) {
+        lr.on('error', function (err) 
+        {
           console.log(err);
         });
 
-        lr.on('end', function () {
-
+        lr.on('end', function () 
+        {
           //final render 
           data = new dataTreeEntry("testing");
           list2JQTreeData();
-          $('#outputGraph').tree({
+          $('#'+id).tree({
                 data : data.children ,
                 autoOpen : false,
                 //dragAndDrop : true
-            });
-
+          });
           console.log('Read complete!');
         });
 
         lr.read(file);
-      });
-
-    });
-    function dataTreeEntry(lbl){
-      if(lbl.indexOf("hhtp://")>=0)
-        lbl = "<a href='"+lbl+"'>"+lbl+"</a>";
+    }
+    function dataTreeEntry(lbl)
+    {
       this.label = lbl;
     }
     dataTreeEntry.prototype.addChildByPosition = function(pos,parentPosPath,child)
@@ -181,7 +181,8 @@
             results = regex.exec(location.search);
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    Array.prototype.equals = function (array) {
+    Array.prototype.equals = function (array) 
+    {
       // if the other array is a falsy value, return
       if (!array)
           return false;
